@@ -50,8 +50,6 @@ import { CompleteCourseComponent } from './components/complete-course/complete-c
 import { RegisterComponent } from './components/register/register.component';
 import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
 
-import { StudentComponent } from './components/student/student.component';
-import { NewStudentComponent } from './components/new-student/new-student.component';
 
 
 import { RecoveryPasswordComponent } from './components/recovery-password/recovery-password.component';
@@ -98,8 +96,6 @@ import { ModuleComponent } from './components/module/module.component';
     NewCourseComponent,
     DetailCourseComponent,
 
-    StudentComponent,
-    NewStudentComponent,
 
     UserComponent,
     NewUserComponent,

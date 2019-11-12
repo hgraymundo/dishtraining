@@ -30,7 +30,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor=" let s of Users | filter:searchFilter | paginate: { itemsPerPage: 5, currentPage: p }; ">
+                        <tr *ngFor=" let s of Courses | filter:searchFilter | paginate: { itemsPerPage: 5, currentPage: p }; ">
                           <td>{{ s.no_employee }}</td>
                           <td>{{ s.name }}</td>
                           <td>{{ s.surname }}</td>
@@ -50,12 +50,11 @@
                               </span>
                               <span class="options">
                                 <button 
-                                  (click)="disablePeriod(s.uuid)" 
+                                  
                                     class="btn btn-sm btn-outline-warning" *ngIf="s.status=='Active'">
                                   Deshabilitar
                                 </button>
                                 <button 
-                                  (click)="enablePeriod(s.uuid)" 
                                     class="btn btn-sm btn-outline-warning" *ngIf="s.status=='Inactive'">
                                   Habilitar
                                 </button>

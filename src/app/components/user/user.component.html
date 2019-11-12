@@ -50,12 +50,10 @@
                               </span>
                               <span class="options">
                                 <button 
-                                  (click)="disablePeriod(s.uuid)" 
                                     class="btn btn-sm btn-outline-warning" *ngIf="s.status=='Active'">
                                   Deshabilitar
                                 </button>
                                 <button 
-                                  (click)="enablePeriod(s.uuid)" 
                                     class="btn btn-sm btn-outline-warning" *ngIf="s.status=='Inactive'">
                                   Habilitar
                                 </button>

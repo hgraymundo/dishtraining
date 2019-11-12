@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
+  Courses: any;
+  searchFilter: any;
+  p: number = 1;
 
   constructor() { }
 
