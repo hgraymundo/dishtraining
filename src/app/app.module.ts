@@ -64,7 +64,7 @@ import { ActivateAccountComponent } from './components/activate-account/activate
 // check for delete
 import { AdminMenuComponent } from './components/admin-menu/admin-menu.component';
 import { ActivityComponent } from './components/activity/activity.component';
-
+import { ModuleComponent } from './components/module/module.component';
 @NgModule({
   declarations: [ 
     AppComponent,
@@ -117,7 +117,8 @@ import { ActivityComponent } from './components/activity/activity.component';
     // HeaderComponent,
     // FooterComponent
     AdminMenuComponent,
-    ActivityComponent
+    ActivityComponent,
+    ModuleComponent
   ],
   imports: [
     BrowserModule,
