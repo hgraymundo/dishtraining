@@ -1,0 +1,131 @@
+<app-header></app-header>
+<section class="sptb">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card mb-0 box-shadow">
+                    <!-- title -->
+                    <div class="card-header  bg-primary"> 
+                        <h3 class="card-title text-white">Nuevo curso</h3>
+                        <div class="card-options">
+                        <a routerLink="/admin/course"><i class="fe fe-x btn btn-sm btn-purple"></i></a>
+                        </div>
+                    </div>
+                    <!-- end title -->
+                    <!-- from -->
+                    <form [formGroup]="templateForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+                    <div class="card-body">
+                        
+                        <div class="form-group text-left ">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Nombre completo</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" formControlName="name" 
+                                    class="form-control input-sm capitalize" 
+                                    [ngClass]="{'is-invalid': submitted && f.name.errors }"
+                                    placeholder="Nombre completo del curso">
+                                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                        <div *ngIf="f.name.errors.required">Este campo es obligatorio.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Nombre corto</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" formControlName="shortName" 
+                                    class="form-control input-sm capitalize" 
+                                    [ngClass]="{'is-invalid': submitted && f.shortName.errors }"
+                                    placeholder="Nombre corto del curso">
+                                    <div *ngIf="submitted && f.shortName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.shortName.errors.required">Este campo es obligatorio.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Categoría</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <select formControlName="category_id" [ngClass]="{ 'is-invalid': submitted && f.category_id.errors }" class="form-control input-sm">
+                                    <!-- <option *ngFor="let e of EmployeeTypes" value="{{e.uuid}}">{{e.description}}</option> -->
+                                    <option value="1">ADN</option>
+                                    </select>
+                                    <div *ngIf="submitted && f.category_id.errors" class="invalid-feedback">
+                                        <div *ngIf="f.category_id.errors.required">Este campo es obligatorio.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Fecha de inicio</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="date" formControlName="start" 
+                                    class="form-control input-sm capitalize" 
+                                    [ngClass]="{'is-invalid': submitted && f.start.errors }"
+                                   >
+                                    <div *ngIf="submitted && f.start.errors" class="invalid-feedback">
+                                        <div *ngIf="f.start.errors.required">Este campo es obligatorio.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Fecha de Terminación</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="date" formControlName="end" 
+                                    class="form-control input-sm capitalize" 
+                                    [ngClass]="{'is-invalid': submitted && f.end.errors }"
+                                >
+                                    <div *ngIf="submitted && f.end.errors" class="invalid-feedback">
+                                        <div *ngIf="f.start.errors.required">Este campo es obligatorio.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Descripción</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <textarea formControlName="description"  
+                                        class="form-control" id="" cols="40" rows="10"
+                                        [ngClass]="{'is-invalid': submitted && f.description.errors }"
+                                        placeholder="Describe el contenido del curso">
+                                    </textarea>
+                                    <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                                        <div *ngIf="f.description.errors.required">Este campo es obligatorio.</div>
+                                        <!-- <div *ngIf="f.no_employee.errors.minlength">Se requiere como mínimo 12 caracteres.</div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="card-footer text-right">
+                        <button type="submit" class="btn btn-primary"> Guardar registro </button>
+                    </div>
+                    </form>
+                        <!-- end form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,231 @@
+<app-header></app-header>
+<section class="sptb">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card mb-0 box-shadow">
+                    <!-- title -->
+                    <div class="card-header  bg-primary"> 
+                        <h3 class="card-title text-white">Nuevo usuario</h3>
+                        <div class="card-options">
+                        <a routerLink="/user"><i class="fe fe-x btn btn-sm btn-purple"></i></a>
+                        </div>
+                    </div>
+                    <!-- end title -->
+                    <!-- from -->
+                    <form [formGroup]="templateForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+                    <div class="card-body">
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">No de empleado</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="no_employee" 
+                                    class="form-control input-sm capitalize" 
+                                    [ngClass]="{'is-invalid': submitted && f.no_employee.errors }"
+                                    placeholder="No de empleado">
+                                    <div *ngIf="submitted && f.no_employee.errors" class="invalid-feedback">
+                                        <div *ngIf="f.no_employee.errors.required">Este campo es obligatorio.</div>
+                                        <!-- <div *ngIf="f.no_employee.errors.minlength">Se requiere como mínimo 12 caracteres.</div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-left ">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Nombre(s)</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="name" 
+                                    class="form-control input-sm capitalize" 
+                                    [ngClass]="{'is-invalid': submitted && f.name.errors }"
+                                    placeholder="Nombre(s)">
+                                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                        <div *ngIf="f.name.errors.required">Este campo es obligatorio.</div>
+                                        <!-- <div *ngIf="f.no_employee.errors.minlength">Se requiere como mínimo 12 caracteres.</div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Apellido(s)</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="surname" 
+                                    class="form-control input-sm capitalize" 
+                                    [ngClass]="{'is-invalid': submitted && f.surname.errors }"
+                                    placeholder="Apellido(s)">
+                                    <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+                                        <div *ngIf="f.surname.errors.required">Este campo es obligatorio.</div>
+                                        <!-- <div *ngIf="f.no_employee.errors.minlength">Se requiere como mínimo 12 caracteres.</div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Correl electrónico</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" formControlName="email" 
+                                    class="form-control input-sm capitalize" 
+                                    [ngClass]="{'is-invalid': submitted && f.email.errors }"
+                                    placeholder="usuario@dominio.com">
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div *ngIf="f.email.errors.required">Este campo es obligatorio.</div>
+                                        <div *ngIf="f.email.errors.email">Debe ser un correo electrónico válido.</div>
+                                        <!-- <div *ngIf="f.no_employee.errors.minlength">Se requiere como mínimo 12 caracteres.</div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Número celular</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" formControlName="cellphone" 
+                                    class="form-control input-sm capitalize" 
+                                    [ngClass]="{'is-invalid': submitted && f.cellphone.errors }"
+                                    placeholder="000-000-0000">
+                                    <div *ngIf="submitted && f.cellphone.errors" class="invalid-feedback">
+                                        <div *ngIf="f.cellphone.errors.required">Este campo es obligatorio.</div>
+                                        <!-- <div *ngIf="f.no_employee.errors.minlength">Se requiere como mínimo 12 caracteres.</div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Role</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <select formControlName="role_id" [ngClass]="{ 'is-invalid': submitted && f.role_id.errors }" class="form-control input-sm">
+                                    <option *ngFor="let r of Roles" value="{{r.uuid}}">{{r.name}}</option>
+                                    </select>
+                                    <div *ngIf="submitted && f.role_id.errors" class="invalid-feedback">
+                                        <div *ngIf="f.role_id.errors.required">Este campo es obligatorio.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h4 class="mt-4 font-weight-bold text-dish">Área Funcional</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Área funcional</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <select formControlName="functional_id" [ngClass]="{ 'is-invalid': submitted && f.functional_id.errors }" class="form-control input-sm">
+                                    <option *ngFor="let fa of FunctionalAreas" value="{{fa.uuid}}">{{fa.name}}</option>
+                                    <!-- <option value="1">Sistemas</option> -->
+                                    </select>
+                                    <div *ngIf="submitted && f.functional_id.errors" class="invalid-feedback">
+                                        <div *ngIf="f.functional_id.errors.required">Este campo es obligatorio.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h4 class="mt-4 font-weight-bold text-dish">Ubicación / Dirección</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Calle</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="street" 
+                                    class="form-control input-sm capitalize" 
+                                    [ngClass]="{'is-invalid': submitted && f.street.errors }"
+                                    placeholder="Calle">
+                                    <div *ngIf="submitted && f.street.errors" class="invalid-feedback">
+                                        <div *ngIf="f.street.errors.required">Este campo es obligatorio.</div>
+                                        <!-- <div *ngIf="f.no_employee.errors.minlength">Se requiere como mínimo 12 caracteres.</div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Colonia</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" formControlName="colony" 
+                                    class="form-control input-sm capitalize" 
+                                    [ngClass]="{'is-invalid': submitted && f.colony.errors }"
+                                    placeholder="Colonia">
+                                    <div *ngIf="submitted && f.colony.errors" class="invalid-feedback">
+                                        <div *ngIf="f.colony.errors.required">Este campo es obligatorio.</div>
+                                        <!-- <div *ngIf="f.no_employee.errors.minlength">Se requiere como mínimo 12 caracteres.</div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Municipio</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" formControlName="municipal" 
+                                    class="form-control input-sm capitalize" 
+                                    [ngClass]="{'is-invalid': submitted && f.municipal.errors }"
+                                    placeholder="Municipio">
+                                    <div *ngIf="submitted && f.municipal.errors" class="invalid-feedback">
+                                        <div *ngIf="f.municipal.errors.required">Este campo es obligatorio.</div>
+                                        <!-- <div *ngIf="f.no_employee.errors.minlength">Se requiere como mínimo 12 caracteres.</div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group text-left">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-label">Estado</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" formControlName="state" 
+                                    class="form-control input-sm capitalize" 
+                                    [ngClass]="{'is-invalid': submitted && f.state.errors }"
+                                    placeholder="Estado">
+                                    <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                                        <div *ngIf="f.state.errors.required">Este campo es obligatorio.</div>
+                                        <!-- <div *ngIf="f.no_employee.errors.minlength">Se requiere como mínimo 12 caracteres.</div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <button type="submit" class="btn btn-primary"> Guardar registro </button>
+                    </div>
+                    </form>
+                        <!-- end form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

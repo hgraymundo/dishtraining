@@ -1,0 +1,64 @@
+<app-header></app-header>
+<section class="sptb">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 mx-auto">
+        <div class="card box-shadow">
+          <div class="card-header bg-primary">
+            <h3 class="card-title text-white">Lista de tipos de curso</h3>
+            <div class="card-options">
+              <a routerLink="/admin/new-type-course" class="btn btn-purple btn-sm">
+                <i class="fa fa-plus"></i>&nbsp;<strong>Nuevo tipo de curso</strong>
+              </a>
+            </div>
+          </div>
+          <div class="card-body card-table">
+            <div class="table-responsive table-sm text-left">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-search fa-fw"></i></span>
+                </div>
+                <input class="form-control input-sm bg-secondary" type="text" [(ngModel)]="searchFilter" placeholder="Busca área funcional">
+              </div>
+              <table class="table table-hover table-bordered table-striped table-sm border-top mb-0">
+                <thead>
+                  <tr>
+                    <td>Tipo de curso</td>
+                    <td>Estatus</td>
+                    <td><i class="fa fa-cog" aria-hidden="true"></i></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let t of typesCourse | filter:searchFilter | paginate: { itemsPerPage: 5, currentPage: p }; ">
+                    <td>{{ t.name }}</td>
+                    <td><span [ngClass]="(t.status=='Active'?'tag tag-success':'tag')">{{ t.status }} </span></td>
+                    <td>
+                      <span class="options"><a (click)="openConfirmationDialog(t.uuid, t.name)"><i class="fa fa-trash"></i></a></span>
+                      <span class="options"><a [routerLink]="['/edit-type-course', t.uuid]"><i class="fa fa-pencil"></i></a></span>
+                      <span class="options">
+                        <a (click)="disable(t.uuid)" class="pointer" *ngIf="t.status=='Active'">
+                          <i class="fa fa-arrow-down"></i>
+                        </a>
+                        <a (click)="enable(t.uuid)" *ngIf="t.status=='Inactive'">
+                          <i class="fa fa-arrow-up"></i>
+                        </a>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="text-right">
+              <pagination-controls 
+              (pageChange)="p = $event"
+              previousLabel="Anterior"
+              nextLabel="Siguiente"
+            >
+            </pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
