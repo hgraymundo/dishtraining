@@ -96,7 +96,6 @@ import { ModuleComponent } from './components/module/module.component';
     NewCourseComponent,
     DetailCourseComponent,
 
-
     UserComponent,
     NewUserComponent,
     
